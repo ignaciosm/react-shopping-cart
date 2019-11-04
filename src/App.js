@@ -12,8 +12,10 @@ function App() {
 	const [cart, setCart] = useState([]);
 
 	const addItem = item => {
-		// add the given item to the cart
+		setCart(prevCart => [...prevCart, {item}])
 	};
+
+	console.log('test', cart)
 
 	return (
 		<div className="App">
@@ -33,7 +35,7 @@ function App() {
 
 			<Route
 				path="/cart"
-				render={() => <ShoppingCart cart={cart} />}
+				render={() => <ShoppingCart cart={cart} setCart={setCart} />}
 			/>
 		</div>
 	);
